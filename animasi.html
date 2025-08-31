@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Animasi My Girl</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  html, body {
+    margin:0; padding:0; height:100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffdde1 0%, #ff9a9e 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #d81e5b;
+  }
+  
+  /* Background dengan efek glow */
+  body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0; right:0; bottom:极;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.3) 0%, rgba(255, 182, 193, 0.1) 50%, transparent 100%);
+    z-index: -3;
+    animation: backgroundPulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes backgroundPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  /* Berbagai jenis animasi love */
+  /* 1. Love Floating */
+  .love {
+    position: fixed;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 极 24 24" fill="%23d81e5b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c极.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+    animation: floatLove 8s ease-in-out infinite;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* 2. Love Bouncing */
+  .love-bounce {
+    position: fixed;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 极 24 24" fill="%23ff6f91"><path d="M12 21.35l-1.45-1.32C5极.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.极5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+    animation: bounceLove 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* 3. Love Spinning */
+  .love-spin {
+    position: fixed;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 极 24 24" fill="%23ff1493"><path d="M12 21.35极l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+    animation: spinLove 10s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* 4. Love Pulse */
+  .love-pulse {
+    position: fixed;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/s极vg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+    animation: pulseLove 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* 5. Love Floating dengan trail */
+  .love-trail {
+    position: fixed;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff85a2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 极2 5.42 4.42 3 7.5 极3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+    animation: trailLove 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Keyframes untuk berbagai animasi */
+  @keyframes floatLove {
+    0% {
+      transform: translateY(120vh) rotate(0deg) scale(0.5);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(40vh) rotate(180deg) scale(1.2);
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg) scale(0.3);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes bounceLove {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translateY(-30px) scale(1.1);
+    }
+    50% {
+      transform: translateY(0) scale(1);
+    }
+    75% {
+      transform: translateY(-15px) scale(1.05);
+    }
+  }
+  
+  @keyframes spinLove {
+    0% {
+      transform: rotate(0deg) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: rotate(180deg) scale(1.3);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes pulseLove {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes trailLove {
+    0% {
+      transform: translateX(-100px) translateY(100vh) rotate(-45deg) scale(0.8);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.8;
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(100vw) translateY(-100px) rotate(45deg) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  /* Container utama */
+  .main-container {
+    text-align: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(216, 30, 91, 0.2);
+    backdrop-filter: blur(10px);
+    animation: containerEntrance 1.5s ease-out;
+  }
+  
+  @keyframes极 containerEntrance {
+    0% {
+      transform: scale(0.8) translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 111, 145, 0.6);
+    background: linear-gradient(45deg, #d81e5b, #ff6f91, #d81e5b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #ff6f91;
+    animation: fadeInUp 2极s ease-out 0.5s both;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Container lirik */
+  .lyrics-container {
+    position: relative;
+    width: 90vw;
+    max-width: 600px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 1.5rem;
+    font-weight: 600;
+   极 color: #d81e5b;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    animation: slideInUp 1s ease-out 1s both;
+  }
+  
+  @keyframes slideIn极Up {
+    0% {
+      opacity: 0;
+      transform: translateY(50极px);
+    }
+    极100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .lyric {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.8s ease;
+    transform: translateY(20px);
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .lyric.active {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 10px rgba(255, 111, 145, 0.4);
+  }
+
+  /* Tombol kontrol audio */
+  .audio-controls {
+    margin-top: 20px;
+  }
+  
+  .audio-btn {
+    background: #d81e5b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(216, 30, 91, 0.4);
+  }
+  
+  .audio-btn:hover {
+    background: #ff6f91;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(216, 30, 91, 0.6);
+  }
+
+  /* Efek sparkle */
+  .sparkle {
+    position: fixed;
+    background: radial-gradient(circle, #fff 20%, transparent 70%);
+    animation: sparkle 2s ease-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  @keyframes sparkle {
+    0% {
+      transform: scale(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="main-container">
+  <h1>🎀 Selamat Hari My Girl! 🎀</h1>
+  <div class="subtitle">Untuk yang tersayang 💖</div>
+</div>
+
+<div class="lyrics-container" aria-live="polite" aria-atomic="true" aria-relevant="text">
+  <!-- Lirik akan muncul di sini -->
+</div>
+
+<div class="audio-controls">
+  <button class="audio-btn" onclick="toggleAudio()">⏯️ Kontrol Musik</button>
+</div>
+
+<audio id="audio" preload="auto" crossorigin="anonymous" loop>
+  <source src="https://files.catbox.moe/3v88lk.m4a" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Warna-warna love
+  const loveColors = ['#d81e5b', '#ff6f91', '#ff1493', '#ff69b4', '#ff85a2', '#ffa7c4', '#ffb6c1'];
+  
+  // Fungsi untuk membuat love dengan berbagai jenis animasi
+  function createLove(type, count) {
+    for(let i=0; i<count; i++) {
+      const love = document.createElement('div');
+      love.classList.add(type);
+      
+      const size = 20 + Math.random() * 40;
+      love.style.width = size + 'px';
+      love.style.height = size + 'px';
+      love.style.left = Math.random() * 100 + 'vw';
+      
+      // Random color
+      const color = loveColors[Math.floor(Math.random() * loveColors.length)];
+      love.style.background = love.style.background.replace(/#[a-f0-9]{6}/i, color);
+      
+      // Random animation properties
+      const duration = {
+        'love': 6 + Math.random() * 4,
+        'love-bounce': 4 + Math.random() * 3,
+        'love-spin': 8 + Math.random() * 4,
+        'love-pulse': 3 + Math.random() * 2,
+        'love-trail': 10 + Math.random() * 4
+      }[type];
+      
+      love.style.animationDuration = duration + 's';
+      love.style.animationDelay = (Math.random() * 5) + 's';
+      
+      document.body.appendChild(love);
+      
+      // Hapus setelah animasi selesai
+      setTimeout(() => {
+        if (love.parentNode) {
+          love.parentNode.removeChild(love);
+        }
+      }, duration * 1000 + 1000);
+    }
+  }
+
+  // Buat berbagai jenis love
+  createLove('love', 15);
+  createLove('love-bounce', 10);
+  createLove('love-spin', 8);
+  createLove('love-pulse', 12);
+  createLove('love-trail', 6);
+
+  // Fungsi untuk membuat efek sparkle
+  function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.top = Math.random() * 100 + 'vh';
+    sparkle.style.width = (5 + Math.random() * 15) + 'px';
+    sparkle.style.height = sparkle.style.width;
+    
+    document.body.appendChild(sparkle);
+    
+    setTimeout(() => {
+      if (sparkle.parentNode) {
+        sparkle.parentNode.removeChild(sparkle);
+      }
+    }, 2000);
+  }
+
+  // Lirik lagu My Girl
+  const lyrics = [
+    { time: 0, text: "I've got sunshine on a cloudy day" },
+    { time: 4, text: "When it's cold outside, I've got the month of May" },
+    { time: 8, text: "I guess you'd say" },
+    { time: 10, text: "What can make me feel this way?" },
+    { time: 13, text: "My girl (my girl, my girl)" },
+    { time: 16, text极: "Talkin' 'bout my girl (my girl)" },
+    { time: 19, text: "I've got so much honey the bees envy me" },
+    { time: 23, text: "I've got a sweeter song than the birds in the trees" },
+    { time: 27, text: "I guess you'd say" },
+    { time: 29, text: "What can make me feel this way?" },
+    { time: 32, text: "My girl (my girl, my girl)" },
+    { time: 35, text: "Talkin' 'bout my girl (my girl)" },
+    { time: 38, text: "Ooh, ooh, ooh" },
+    { time: 40, text: "Hey, hey, hey" },
+    { time: 42, text: "Hey, hey, hey" },
+    { time: 44, text: "My girl" },
+  ];
+
+  const lyricsContainer = document.querySelector('.lyrics-container');
+  const audio = document.getElementById('audio');
+
+  // Buat elemen lyric
+  lyrics.forEach(item => {
+    const div = document.createElement('div');
+    div.classList.add('lyric');
+    div.textContent = item.text;
+    lyricsContainer.appendChild(div);
+    item.element = div;
+  });
+
+  // Update lirik
+  function updateLyrics() {
+    const currentTime = audio.currentTime;
+    let activeIndex = -1;
+    
+    for(let i=0; i<lyrics.length; i++) {
+      if(currentTime >= lyrics[i].time) {
+        activeIndex = i;
+      } else {
+        break;
+      }
+    }
+    
+    lyrics.forEach((item, idx) => {
+      if(idx === activeIndex) {
+        item.element.classList.add('active');
+      } else {
+        item.element.classList.remove('active');
+      }
+    });
+  }
+
+  audio.addEventListener('timeupdate', updateLyrics);
+
+  // Kontrol audio
+  function toggleAudio() {
+    if(audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+
+  // Auto play
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      audio.play().catch(error => {
+        console.log('Autoplay diblokir');
+        document.querySelector('.audio-btn').textContent = '▶️ Putar Musik';
+      });
+    }, 1000);
+  });
+
+  // Tambah love dan sparkle secara berkala
+  setInterval(() => {
+    // Tambah berbagai jenis love
+    const loveTypes = ['love', 'love-bounce', 'love-spin', 'love-pulse', 'love-trail'];
+    const randomType = loveTypes[Math.floor(Math.random() * loveTypes.length)];
+    createLove(randomType, 1);
+    
+    // Tambah sparkle
+    if(Math.random() > 0.7) {
+      createSparkle();
+    }
+  }, 500);
+
+  // Tambah sparkle saat klik
+  document.addEventListener('click', () => {
+    for(let i=0; i<3; i++) {
+      setTimeout(() => createSparkle(), i * 100);
+    }
+  });
+</script>
+
+</body>
+</html>
