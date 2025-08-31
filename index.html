@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Girl - Login</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  html, body {
+    margin:0; padding:0; height:100%;
+    font-family: 'Poppins', sans-serif;
+    background: #ffdde1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Background animasi love */
+  body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: radial-gradient(circle at center, #ff9a9e 0%, #fad0c4 100%);
+    z-index: -3;
+  }
+  /* Animasi love floating */
+  .love {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: url('https://i.ibb.co/7QpKsCX/heart.png') no-repeat center/contain;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-50px) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  /* Generate multiple love hearts with different delays and positions */
+  /* We'll create them dynamically with JS */
+
+  .container {
+    background: rgba(255 255 255 / 0.85);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    max-width: 350px;
+    width: 90vw;
+  }
+  h1 {
+    margin-bottom: 30px;
+    color: #d81e5b;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #ff6f91;
+  }
+  input[type="password"] {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 2px solid #ff6f91;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  input[type="password"]:focus {
+    border-color: #d81e5b;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background: #d81e5b;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(216, 30, 91, 0.6);
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #ff6f91;
+  }
+  .clue {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #d81e5b;
+    font-style: italic;
+  }
+  .error {
+    margin-top: 15px;
+    color: #b00020;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" role="main" aria-label="Login My Girl">
+  <h1>Masukkan Password</h1>
+  <form id="loginForm" novalidate>
+    <input type="password" id="password" name="password" placeholder="Password" aria-label="Password" required autocomplete="off" />
+    <button type="submit">Submit</button>
+  </form>
+  <div class="clue">Clue: tanggal, bulan, tahun lahir kamu</div>
+  <div class="error" id="errorMsg" role="alert" aria-live="assertive" style="display:none;"></div>
+</div>
+
+<script>
+  // Buat animasi love floating
+  const loveCount = 25;
+  for(let i=0; i<loveCount; i++) {
+    const love = document.createElement('div');
+    love.classList.add('love');
+    love.style.left = Math.random() * 100 + 'vw';
+    love.style.animationDuration = (5 + Math.random() * 5) + 's';
+    love.style.animationDelay = (Math.random() * 10) + 's';
+    love.style.width = (20 + Math.random() * 20) + 'px';
+    love.style.height = love.style.width;
+    document.body.appendChild(love);
+  }
+
+  const correctPassword = 'maklo'; // Contoh password: tanggal, bulan, tahun lahir (ddmmyyyy)
+
+  const form = document.getElementById('loginForm');
+  const errorMsg = document.getElementById('errorMsg');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const val = form.password.value.trim();
+    if(val === correctPassword) {
+      errorMsg.style.display = 'none';
+      window.location.href = 'animasi.html';
+    } else {
+      errorMsg.textContent = 'Password salah, coba lagi.';
+      errorMsg.style.display = 'block';
+      form.password.value = '';
+      form.password.focus();
+    }
+  });
+</script>
+
+</body>
+</html>
